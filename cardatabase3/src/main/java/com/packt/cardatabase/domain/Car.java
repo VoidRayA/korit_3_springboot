@@ -13,9 +13,8 @@ public class Car {
     private int modelYear, price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="owner")       // 조인할 때 쓸 컬럼인데 컬럼명을 owner로 짓겠다는 의미
+    @JoinColumn(name="owner")
     private Owner owner;
-    // @JoinColumn만 사용하게 될 경우 하이버네이트에서 마음대로 pk_fk 형태로 임의의 형태로 정의
 
     public Car() {}
 
@@ -93,4 +92,3 @@ public class Car {
         this.owner = owner;
     }
 }
-

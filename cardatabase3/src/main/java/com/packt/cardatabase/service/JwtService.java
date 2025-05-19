@@ -26,7 +26,6 @@ public class JwtService {
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION))
                 .signWith(key)
                 .compact();
-
         return token;
     }
 
@@ -40,6 +39,7 @@ public class JwtService {
                     .parseClaimsJws(token.replace(PREFIX, ""))
                     .getBody()
                     .getSubject();
+
 
             if (user != null) {
                 return user;

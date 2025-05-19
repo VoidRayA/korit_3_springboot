@@ -16,10 +16,11 @@ public class AppUser {
     private String password;
 
     @Column(nullable = false)
-    private String role;           // SecurityConfig에서 "USER"라고 썼음.
+    private String role;            // 저희는 SecurityConfig에서 "USER"라고 썼습니다.
 
     // 기본 생성자 / id를 제외한 RequiredArgsConstructor있어야 하고,
-    // 각 필드에 대한 Getter / Setter 생성
+    // 각 필드에 대한 Getter / Setter 있어야겠네요
+
     public AppUser() {
     }
 

@@ -14,7 +14,7 @@ public class CarController {
     }
 
     @GetMapping("/cars")
-    public Iterable<Car> getCars() {
+    private Iterable<Car> getCars() {
         return repository.findAll();
     }
 }

@@ -8,7 +8,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.packt.cardatabase.domain.CarRepository;
 
-import java.security.AlgorithmConstraints;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -19,7 +18,7 @@ public class CardatabaseApplication implements CommandLineRunner {
 	private final CarRepository repository;
 	private final OwnerRepository oRepository;
 	private final AppUserRepository uRepository;
-	// 생성자 주입을 통한 CarRepository / OwnerRepository 추가
+	// 생성자 주입을 통한 CarRepository / OwnerRepository
 	public CardatabaseApplication(CarRepository repository, OwnerRepository oRepository, AppUserRepository uRepository) {
 		this.repository = repository;
 		this.oRepository = oRepository;
@@ -33,7 +32,7 @@ public class CardatabaseApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Owner 객체를 생성하고 DB에 저장합니다.
+		// Owner 객체를 생성하고 DB에 저장할겁니다.
 		Owner owner1 = new Owner("John", "Johnson");
 		Owner owner2 = new Owner("Mary", "Robinson");
 		Owner owner3 = new Owner("근수", "안");
@@ -45,13 +44,20 @@ public class CardatabaseApplication implements CommandLineRunner {
 		repository.save(new Car("Kia", "Seltos", "Chacoal", "360수5690", 2020, 28000, owner3));
 
 		// 모든 자동차 엔티티를 다 찾아내서 Console창에 로깅
-		for (Car car : repository.findAll()){
+		for (Car car : repository.findAll()) {
 			logger.info("브랜드: {}, 모델명: {}", car.getBrand(), car.getModel());
 		}
 
 		// 사용자명 : user, 비밀번호 : user
-		uRepository.save(new AppUser("user", "$2y$04$ZQcg03.Ij8qvP6N.7jU2rOYyt0I/7iyWcgoI1mRvWcJeqCT6eSOeS", "USER"));
+		uRepository.save(new AppUser("user", "$2y$04$1xZnDkya6ARJFjs8AulayO4GBfXsQh7btpytrywksCmHV8Pwc8P.u", "USER"));
 		// 사용자명 : admin, 비밀번호 : admin
-		uRepository.save(new AppUser("admin", "$2y$04$HuKLx0rXfPio0MQ4K6ln4O7Zn9AXk.LnxGleEV/qOM.aPOlxRP8da", "ADMIN"));
+		uRepository.save(new AppUser("admin", "$2y$04$brLHAKurol4oKJ0Ai.wBS.KlUWlNbve7ROZN5T2mT97cWg9ATN6Hu", "ADMIN"));
+
+
+
+
+
+
+
 	}
 }
